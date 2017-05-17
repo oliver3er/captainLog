@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Captain Logger</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript">
+		function saveRecord(){
+		
+		}
+		function addAttach(){
+		
+		}
+		function deleteRecord(){
+		
+		}
+		
+		$(function (){
+		
+	        //查询框，点击出现小标签
+	        $('.search-input-box').bind('click',function(){
+	        	$(this).children('div').remove();
+	        	$(this).append('<div>fff</div>');
+	        	//<ul class="search-input-items"><li>试试吧<span></span></li><li>再来<span></span></li></ul>
+	        	$('.search-input-items').show();
+	        });
+		
+			//新记录输入框与保存按钮联动
+			$('#inputBox').bind('input propertychange', function() {	
+				var textStr = $.trim($('#inputBox').text());		
+				if(textStr==""){
+    				$('.input-save-btn').removeClass().addClass("record-saveDisableBtn").addClass('input-save-btn');
+    			}else {
+    				$('.input-save-btn').removeClass().addClass("record-saveBtn").addClass('input-save-btn');
+    			}
+    			
+    			//输入框输入标签＃，提示框
+    			if(textStr=="#"){
+    				var labelbox = $('.label-box');
+				
+         			labelbox.show();  
+         			labelbox.css("left",330);  
+         			labelbox.css("top",170); 
+    			}
+			});
+			
+			//鼠标点击标签，显示标签操作带单
+			$('.label-live').bind('click',function(){
+				var label = $(this);  
+				var menubox = $('.label-menu-box');
+				var currentY = label.offset().top;
+				var currentX = label.offset().left;
+				
+         		menubox.show();  
+         		menubox.css("left",currentX);  
+         		menubox.css("top",currentY + label.height() + 8); 
+			});
+			
+			//鼠标经过标签菜单项，改变菜单项底色
+			$('.label-menu-box ul li').hover(function(){
+				$(this).css("background","#eff9ff");
+			},function(){
+        		$(this).css("background","#ffffff");
+        	});
+			
+			//鼠标经过标签，显示标签说明信息框
+			$('.label-live').hover(function(){
+				var label = $(this);  
+				var tipbox = $('.tip');
+				var currentY = label.offset().top;
+				var currentX = label.offset().left;
+				
+				$('.tip-box').text('');
+				$('.tip-box').text("这是个标签");
+         		tipbox.show();  
+         		tipbox.css("left",currentX + label.width()/2 - tipbox.width()/2);  
+         		tipbox.css("top",currentY - tipbox.height() - 3);  
+			},function(){
+        		 $('.tip').hide();// 鼠标离开时触发
+            });
+			
+			//点击常用标签，显示关联标签
+			$('.usual-label').bind('click',function(){   		
+				var currentLabel = $(this);
+				
+				currentLabel.parent("div").find(".arrow_box").remove();
+				
+				var currentY = currentLabel.position().top;
+				var currentX = currentLabel.position().left;
+				var leftValue = currentX + currentLabel.width()/2 - 10;
+				var nextLabel;
+				var i = 0;
+				for(i = 0; i<5; i++){
+					nextLabel = currentLabel.next();
+					if(!nextLabel.hasClass("usual-label")){
+						break;
+					}
+					var y = nextLabel.position().top;
+					if(y>currentY){
+						break;
+					}else{
+						currentLabel = nextLabel;
+					}
+				}
+				//加入关联标签的html
+				currentLabel.after('<div class="arrow_box up"><span class="label label4 usual-label">什么玩意</span><span class="label label2 usual-label">喝水</span><span class="label label2 usual-label">标签</span><span class="label label4 usual-label">什么玩意</span></div>');
+				//改变三角位置
+				$('head').append("<style>.arrow_box.up::before{ left: "+leftValue+"px }</style>");
+				$('head').append("<style>.arrow_box.up::after{ left: "+(leftValue+1.5)+"px }</style>");
+			});
+			
+			//右侧欢迎部分例子
+			$('.block1').bind('click',function(){
+				$('.tip-img img').attr("src", "images/stars.svg"); 
+				$('.tip-message').text('正在新建日志，请按cmd+s保存');
+			});
+		});
+	</script>
+</head>
+<body>
+	<!--header-->
+	<header class="header sticky">
+		<div class="container">
+			<div class="header-logo">
+				<a href="/_">
+					<img id="logo" src="images/logo.svg" alt="logo" /><img id="bigname" src="images/bigname.png" alt="logo" />
+				</a>
+			</div>
+			<div class="header-right clearfix">
+				<div class="top-search">
+					<div class="search-input-box" contenteditable="true" data-placeholder="在此搜索日志内容、标签..."></div>
+					<span>
+						<button type="submit" class="top-search-icon" value="">
+					</span>
+				</div>
+				<div class="top-portrait">
+					<img src="images/kirkportrait.png" alt="船长头像"/>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--//header-->
+	
+	<!--main-->
+	<div class="main clearfix">
+		<div class="container">
+			<!--left-->
+			<div class="main-content clearfix">
+				<div class="main-content-inner"> 
+		    	    <!--input area-->
+		    		<div class="main-input clearfix">
+		    			<div class="main-input-content">
+		    				<div class="input-head"><img src="images/alien.png" alt="有什么新发现"></div>
+		    			</div>
+		    			<div class="input-area clearfix">
+		    				<div class="input-area-buttons">
+		    				    <ul>
+        							<li class="record-saveDisableBtn input-save-btn"></li>
+            						<li class="record-attachmentBtn" onclick="addAttach();"></li>
+        						</ul>
+		    				</div>
+		    				<div class="input-area-box">
+		    					<div class="textbox" contenteditable="true" required id="inputBox" data-placeholder="地球时间——公元二零一七年三月七日......"></div>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<!--//input area-->
+		    		
+		    		<!--records-->
+		    		<div class="main-records"> 
+		    			<div class="record">
+		    				<div class="record-head">
+		    					<div class="record-time">2017-5-11</div>
+		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    				</div>
+		    				<div class="record-container clearfix">
+		    					<div class="record-labels">
+		    						<span class="label label2 label-colorful label-live" style="background: #ddbf87;">字体</span> 
+		    						<span class="label label2 label-live">颜色</span>
+		    					</div>
+		    					<div class="record-content">
+		    						<p>
+		    							#乐队# 、#耳光乐队#《鸿鹄志》 有点像郝云。什么时候出的这么一个乐队，啦啦啦啦半天，没听出来啥玩意。一边听歌一边做设计会不会有点灵感，还是得多想？像画画一样，先想差不多了再下笔。
+		    							这个喜欢划拉的习惯不太好，控制控制
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="record">
+		    				<div class="record-head">
+		    					<div class="record-time">2017-5-8</div>
+		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    				</div>
+		    				<div class="record-container clearfix">
+		    					<div class="record-labels">
+		    						<span class="label label2 label-live">你呀</span> <span class="label label2 label-live">谁呀</span>
+		    					</div>
+		    					<div class="record-content">
+		    						<p>
+		    							此处#字体#为黑体，14号字，颜色为#5e5d5d。字间距为60。行距为16点。
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="record">
+		    				<div class="record-head">
+		    					<div class="record-time">2017-4-28</div>
+		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    				</div>
+		    				<div class="record-container clearfix">
+		    					<div class="record-labels">
+		    						<span class="label label2 label-live">你呀</span> <span class="label label2 label-live">谁呀</span>
+		    					</div>
+		    					<div class="record-content">
+		    						<p>
+		    							法国新浪潮旗手让・吕克・戈达尔，还有那惊天辟地的处女作《精疲力竭》，想必但凡稍有电影知识的观众都已经知道。但在八八年之后，戈达尔曾前后花费十年之久，拍摄过一部即非剧情片，也不是纪录片的巨作《电影史》，却很少为人所知，甚至往往被忽视。
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="record">
+		    				<div class="record-head">
+		    					<div class="record-time">2017-4-23</div>
+		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    				</div>
+		    				<div class="record-container clearfix">
+		    					<div class="record-labels">
+		    						<span class="label label2 label-live">haha</span> <span class="label label2 label-live">啦啦</span>
+		    					</div>
+		    					<div class="record-content">
+		    						<p>
+		    							戈达尔《电影史》带来的并不是知识，而是在知识与知识之间，引用与引用的碰撞之中，一次全新的思考契机和可能性的探索。
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="record-edit">
+		    				<div class="record-head clearfix">
+		    					<div class="record-time">2017-4-13</div>
+		    					<div class="record-button">
+		    						<ul>
+        								<li class="record-saveBtn" onclick="saveRecord();"></li>
+            							<li class="record-attachmentBtn" onclick="addAttach();"></li>
+            							<li class="record-deleteBtn" onclick="deleteRecord();"></li>
+        							</ul>
+		    					</div>
+		    				</div>
+		    				<div class="record-container clearfix">
+		    					<div class="record-labels">
+		    						<span class="label label2 label-live">sss</span> <span class="label label2 label-live">ttt</span>
+		    					</div>
+		    					<div class="record-content">
+		    						<div class="textbox" contenteditable="true">
+		    							此处#字体#为黑体，13号字，颜色为#373636。字间距为0。行距为18点。
+		    							标签尺寸 2-3个汉字的标签 宽52 高24; 4、5个汉字的标签 宽78 高24；6、7、8个汉字的标签宽125
+		    							除此以外地话。。。。。。。
+		    							发票无花果  不在乎
+		    							阿萨德来福建啊来得及发了；记得伐；都快放假啊谁asd垃圾到来建立奖励金额分开了家阿迪哦飞机
+		    							两卡金德拉克飞机啊都来福建啊了对方就李连杰鲁昆吉里的空间
+		    							路上看到减肥啦速度加快发牢骚点击发送劳动法卡简单放
+		    							速度发生的
+		    							最后一行#这里
+		    						</div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			
+		    			<div class="record load-block">
+		    				<img src="images/load.gif" alt="加载中。。。" />
+		    			</div>
+		    		</div>
+		    		<!--//records-->
+		    	</div>
+			</div>
+			<!--//left-->
+			<!--right-->
+			<div class="main-sidebar">
+				<div class="sidebar-block info-block">
+					<div class="block1 clearfix"> 
+						<div class="tip-img"><img src="images/stars-blue.svg" alt="tip" /></div>
+						<div class="tip-message">欢迎你，kirk船长</div>
+					</div>
+					
+					<div class="block2"> 
+						<div class="info-log-label clearfix">
+							<div class="info-log">
+								<span class="info-name">日志:</span><span class="info-num">2338</span>
+							</div>
+							<div class="info-label">
+								<span class="info-name">标签:</span><span class="info-num">986</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sidebar-block usuallabels-block">
+					<div class="usuallabels-name"><span class="label label4">常用标签</span></div>
+					<div class="usuallabels-labels">
+						<span class="label label2 usual-label">标签</span>
+						<span class="label label4 usual-label">什么玩意</span>
+						<span class="label label2 usual-label">喝水</span>			
+						<span class="label label2 usual-label">标签</span>
+						<span class="label label2 usual-label">喝水</span>
+						<span class="label label4 usual-label">什么玩意</span>
+					</div>
+				</div>
+				
+				<div class="sidebar-block copyright-block">
+					<span><img src="images/copyright.png" alt="copyright" /></span><span>2017 CAPTAIN’S LOG</span>
+				</div>
+			</div>
+			<!--//right-->
+		</div>
+	</div>
+	<!--//main-->
+	
+	<!--浮动div、默认不显示的部分 begin-->
+	<div class="tip"><div class="tip-box down"></div></div>
+	<div class="pop-box label-menu-box">
+		<ul>
+			<li>只看它</li>
+			<li>选颜色</li>
+			<li><span>常</span><span>用</span></li>
+		</ul>
+	</div>
+	<div class="pop-box label-box">
+		<ul>
+			<li>#只看它#</li>
+			<li>#选颜色#</li>
+			<li>#这什么玩意#</li>
+		</ul>
+	</div>
+	<!--浮动div、默认不显示的部分 end-->
+</body>
+</html>
