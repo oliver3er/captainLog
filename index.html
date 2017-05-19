@@ -21,6 +21,23 @@
 		
 		$(function (){
 		
+	        //鼠标移到头像，显示系统菜单
+	        $('.top-portrait img').hover(function(){
+	        	var currentY = $(this).offset().top;
+				var currentX = $(this).offset().left;
+				var menu = $('.top-pop-menu');
+	        	menu.show();
+	        	menu.css("left",currentX);   
+	        });
+	        
+	        //鼠标移到系统菜单，改变菜单底色
+	        $('.top-pop-menu ul li').hover(function(){
+	        	$(this).css("background","#0986d2");
+	        },function(){
+        		$(this).css("background","#3095d3");
+        	});
+	        
+	        
 	        //查询框，点击出现小标签
 	        $('.search-input-box').bind('click',function(){
 	        	$(this).children('div').remove();
@@ -138,6 +155,15 @@
 				</div>
 				<div class="top-portrait">
 					<img src="images/kirkportrait.png" alt="船长头像"/>
+					<div class="top-pop-menu">
+					<ul>
+						<li>标签管理</li>
+						<li>修改密码</li>
+						<li><span>退</span><span>出</span></li>
+					</ul>
+				</div>
+				
+				
 				</div>
 			</div>
 		</div>
@@ -332,6 +358,7 @@
 			<li>#这什么玩意#</li>
 		</ul>
 	</div>
+	
 	<!--浮动div、默认不显示的部分 end-->
 </body>
 </html>

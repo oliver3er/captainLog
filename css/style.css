@@ -228,6 +228,46 @@ button {
 	height: 45px;
 }
 
+.top-pop-menu {
+	position: absolute;
+	display: none;
+	width: 120px;
+}
+
+.top-pop-menu ul {
+	margin: 6px 0 0 ;
+	padding: 0;
+	list-style-type: none;
+}
+
+.top-pop-menu ul li {
+	display: block;
+	padding: 12px 8px;
+	height: 40px;
+	line-height: 100%;
+	text-align: center;
+	letter-spacing: 1px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 14px;
+	border-top: 1px solid #0986d2;###167bb9;
+	background: #3095d3;
+}
+
+.top-pop-menu ul li:last-child {
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px;
+	box-shadow: 0 2px 1px #a5a6a6;
+}
+
+.top-pop-menu ul li:first-child {
+	border: 0;
+}
+
+.top-pop-menu ul li:last-child span:first-child {
+	padding-right: 31px;
+}
+
 .main {
 	min-height: 340px;
     position: relative;
