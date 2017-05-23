@@ -28,6 +28,7 @@
 				var menu = $('.top-pop-menu');
 	        	menu.show();
 	        	menu.css("left",currentX);   
+	        	//menu.css("left",currentX + $(this).width() - 120);   
 	        });
 	        
 	        //鼠标移到系统菜单，改变菜单底色
@@ -39,11 +40,11 @@
 	        
 	        
 	        //查询框，点击出现小标签
-	        $('.search-input-box').bind('click',function(){
+	        /*$('.search-input-box').bind('click',function(){
 	        	$(this).children('div').remove();
 	        	$(this).append('<div><ul class="search-input-items"><li>试试吧<span></span></li><li>再来<span></span></li></ul></div>');
 	        	$('.search-input-items').show();
-	        });
+	        });*/
 		
 			//新记录输入框与保存按钮联动
 			$('#inputBox').bind('input propertychange', function() {	

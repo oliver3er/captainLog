@@ -116,13 +116,15 @@ button {
 .top-search {
 	position: relative;
 	float: left;
-	width: 340px;
-	margin: 15px 0px 15px 0;
+	margin: 15px 0;
 }
 
 .search-input-box {
+	display: inline-block;
     height: 32px; 
     line-height: 150%;
+    min-width: 340px;
+    max-width: 700px;
     margin-left: auto; 
     margin-right: auto; 
     padding: 4px 40px 7px 10px;
@@ -130,9 +132,8 @@ button {
 	border: 2px solid #aadfff; 
 	color: #9ba9b3;
 	background: #fcfcfc;
-	word-wrap: break-word;
-    overflow-x: auto;
-    overflow-y: hidden;
+	white-space:nowrap;
+    overflow: hidden;
 	outline: 0;
 	font-size: 14px;
     box-sizing: border-box;
@@ -140,14 +141,14 @@ button {
     transition: all .2s ease-in-out;
 }
 
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-placeholder);
+}
+
 .search-input-box:hover, .search-input-box:active{
 	background: #ffffff;
 	border-color:#cfecfe;
 	box-shadow: 0 1px 5px #b2cedf;
-}
-
-[contentEditable=true]:empty:not(:focus):before{
-    content:attr(data-placeholder);
 }
 
 .search-input-box p { margin: 0; }
@@ -205,6 +206,11 @@ button {
 	display: block;
     font-family: anticon!important;
 	content: "\E633";
+}
+
+.search-input-box input {
+	border: 0;
+	display:none;
 }
 
 .top-search-icon {
@@ -523,6 +529,7 @@ button {
 .label {
 	display: inline-block;
 	margin-right: 8px;
+	margin-bottom: 6px;
 	height: 30px;
 	line-height:30px; 
 	border: 1px solid #2a7eb1;
