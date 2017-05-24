@@ -78,11 +78,11 @@
 			});
 			
 			//鼠标经过标签菜单项，改变菜单项底色
-			$('.label-menu-box ul li').hover(function(){
+			/*$('.label-menu-box ul li').hover(function(){
 				$(this).css("background","#eff9ff");
 			},function(){
         		$(this).css("background","#ffffff");
-        	});
+        	});*/
 			
 			//鼠标经过标签，显示标签说明信息框
 			$('.label-live').hover(function(){
@@ -180,7 +180,7 @@
 		    	    <!--input area-->
 		    		<div class="main-input clearfix">
 		    			<div class="main-input-content">
-		    				<div class="input-head"><img src="images/alien.png" alt="有什么新发现"></div>
+		    				<div class="input-head"><img src="images/alien.png" alt="有什么新发现"/></div>
 		    			</div>
 		    			<div class="input-area clearfix">
 		    				<div class="input-area-buttons">
@@ -205,6 +205,8 @@
 		    				</div>
 		    				<div class="record-container clearfix">
 		    					<div class="record-labels">
+		    						<span class="label label2 label-colorful label-live" style="background: #ddbf87;">字体</span> 
+		    						<span class="label label2 label-live">颜色</span>
 		    						<span class="label label2 label-colorful label-live" style="background: #ddbf87;">字体</span> 
 		    						<span class="label label2 label-live">颜色</span>
 		    					</div>
@@ -328,7 +330,7 @@
 						<span class="label label2 usual-label">标签</span>
 						<span class="label label4 usual-label">什么玩意</span>
 						<span class="label label2 usual-label">喝水</span>			
-						<span class="label label2 usual-label">标签</span>
+						<span class="label label2 usual-label label-colorful" style="background: #ddbf87;">标签</span>
 						<span class="label label2 usual-label">喝水</span>
 						<span class="label label4 usual-label">什么玩意</span>
 					</div>
