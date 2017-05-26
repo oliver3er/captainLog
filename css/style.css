@@ -326,7 +326,7 @@ button {
 
 .input-head {
 	position: relative;
-	margin: 42px var(--record-content-width1) 0 20px;
+	margin: 0px var(--record-content-width1) 0 20px;
 }
 
 .input-record-labels {
@@ -340,6 +340,11 @@ button {
 .input-head img {
 	width: 155px;
 	height: 97px;
+	margin-top: 42px;
+}
+
+.input-head div:first-child {
+	margin-top: 52px;
 }
 
 .input-area {

@@ -19,6 +19,11 @@
 		
 		}
 		
+		function addLabel(){
+			$('.input-head img').remove();
+			$('.input-head').append("<div class='record-labels'><span class='label'>我是新标签</span><span class='label'>我是</span><span class='label'>我</span></div>");
+		}
+		
 		$(function (){
 		
 	        //鼠标移到头像，显示系统菜单
@@ -135,6 +140,7 @@
 				$('.tip-img img').attr("src", "images/stars.svg"); 
 				$('.tip-message').text('正在新建日志，请按cmd+s保存');
 			});
+			
 		});
 	</script>
 </head>
@@ -360,6 +366,10 @@
 		</ul>
 	</div>
 	
+	
+	<div style="position: absolute; z-index:210000; top: 70px;left: 500px;">
+		<a href="javascript:addLabel();" >新建记录输入标签</a>
+	</div>
 	<!--浮动div、默认不显示的部分 end-->
 </body>
 </html>
