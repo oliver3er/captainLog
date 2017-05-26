@@ -271,7 +271,7 @@ button {
 	border: 0;
 }
 
-.top-pop-menu ul li:last-child span:first-child {
+.top-pop-menu ul li span:first-child {
 	padding-right: 31px;
 }
 
@@ -1306,3 +1306,299 @@ fieldset {
 }
 
 /***home page css end***/
+
+/***tagMg page css begin***/
+
+.tag-title-div {
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #3095d3;
+}
+
+
+.tag-title-div span {
+	position: relative;
+	float: right;
+	display: block;
+	height: 60px;
+	width: 120px;
+	text-align: center;
+	background: #f5f8fa!important;
+    border: 1px solid #3095d3;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-color: transparent;
+    margin-right: 41px;
+    font-size: 16px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    cursor: default;
+}
+
+.tag-table-div {
+	width: 1140px;
+	max-width: 100%;
+}
+
+.tag-table {
+	width: 100%;
+	margin: 0 0 40px;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 18px;
+	line-height: 1.125rem;
+	font-weight: 300;
+	##border-collapse: collapse;
+}
+
+.tag-table th {
+	height: 50px;
+	border-bottom: 1px solid #3095d3;
+	text-align: left;
+	padding-left: 5px;
+	font-weight: 100;
+	color: #a5a5a5;
+}
+
+.tag-table .column-sort {
+	margin-left: 3px;
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tag-table th .sort-up, .tag-table th .sort-down {
+	line-height: 4px;
+    display: block;
+    cursor: pointer;
+}
+
+.tag-table th .sort-up.off {
+	margin-bottom: 3px;
+	content: url(../images/triangleUp.png);
+}
+
+.tag-table th .sort-up.on {
+	margin-bottom: 3px;
+	content: url(../images/triangleUp2.png);
+}
+
+.tag-table th .sort-down.off {
+	content: url(../images/triangleDown.png);
+}
+
+.tag-table th .sort-down.on {
+	content: url(../images/triangleDown2.png);
+}
+
+.tag-table tr:nth-child(even) {
+	background: #ffffff;
+	##border: 2px solid red;
+}
+
+.tag-table td {
+	height: 60px;
+	text-align: left;
+	font-weight: 400;
+	padding-left: 2px;
+}
+
+.tag-table .name {
+	min-width: 40%;
+	white-space:nowrap;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.tag-table .amount {
+	width: 30%;
+	max-width: 30%;
+	min-width: 15%;
+	padding-left: 10px;
+}
+
+.tag-table .desp {
+	width: 40%;
+	max-width: 40%;
+	min-width: 20%;
+	word-wrap: break-word;
+	word-break: break-all;
+	padding-left: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	cursor: pointer;
+}
+
+.tag-table .desp .tag-desp-btn {
+	display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    line-height: 1.5;
+    padding: 4px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    position: relative;
+    color: #9eadb7;
+    background-color: #f7f7f7;
+    border-color: #d9d9d9;
+    background-color: transparent;
+    border-color: #d9d9d9;
+    border-style: dashed;
+}
+
+.tag-table .desp .tag-desp-btn:hover,.tag-table .desp .tag-desp-btn:focus,.tag-table .desp .tag-desp-btn:active {
+	color:#1da1f3;
+	outline: 0;
+	background-color:#f7f7f7;
+	border-color:#1da1f3;
+}
+
+.tag-desp-add-icon {
+	display: inline-block;
+    font-style: normal;
+    vertical-align: baseline;
+    text-align: center;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.tag-desp-add-icon:before {
+	display: block;
+    font-family: anticon!important;
+}
+
+.icon-code:before {
+	content: "\E645";
+}
+
+.tag-desp-input-div {
+	position: relative;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.tag-desp-inputbox {
+	position: relative;
+    z-index: 2;
+    float: left;
+    width: 80%;
+    margin-bottom: 0;
+    display: inline-block;
+    padding: 4px 7px;
+    height: 34px;
+    cursor: text;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.tag-desp-input-btn {
+	padding: 7px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 34px;
+    color: #1da1f3;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #d9d9d9;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    position: relative;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.tag-desp-input-btn a:active {
+	color: #1b91db;
+}
+
+.tag-table td .label {
+	margin: 0;
+}
+
+.tag-page-control {
+	position: absolute;
+	left: 50%;
+	margin: 40px 0 20px;
+	text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+.tag-page-control ul {
+	position: relative;
+    max-width: 600px;
+    margin: 0 auto 0 auto;
+
+	padding: 0;
+	list-style-type: none;
+}
+
+.tag-page-control ul li {
+	display: block;
+	float: left;
+	border: none;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 8px;
+}
+
+.tag-page-control .prev-page {
+	height: 12px;
+	width: 8px;
+	margin-top: 2px;
+	margin-right: 15px;
+	content: url(../images/arrowLeft.png);
+}
+
+.tag-page-control .next-page {
+	width: 7px;
+	height: 12px;
+	margin-top: 2px;
+	margin-left: 15px;
+	content: url(../images/arrowRight2.png);
+}
+
+.tag-page-control .page-num {
+	font-size: 14px;
+	font-size: 0.875rem;
+	margin: 0;
+}
+
+.tag-page-control ul li a {
+	color: #1da1f3;
+	text-decoration: underline;
+	margin: 0 5px;
+}
+/***tagMg page css end***/

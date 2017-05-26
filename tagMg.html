@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Captain Logger</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	<!--header-->
+	<header class="header sticky">
+		<div class="container">
+			<div class="header-logo">
+				<a href="/_">
+					<img id="logo" src="images/logo.svg" alt="logo" /><img id="bigname" src="images/bigname.png" alt="logo" />
+				</a>
+			</div>
+			<div class="header-right clearfix">
+				<div class="top-search">
+					<div class="search-input-box" contenteditable="true" data-placeholder="过滤标签..."></div>
+					<span>
+						<button type="submit" class="top-search-icon" value="">
+					</span>
+				</div>
+				<div class="top-portrait">
+					<img src="images/kirkportrait.png" alt="船长头像"/>
+					<div class="top-pop-menu">
+					    <ul>
+							<li><span>返</span><span>回</span></li>
+							<li>修改密码</li>
+							<li><span>退</span><span>出</span></li>
+						</ul>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--//header-->
+	
+	<!--main-->
+	<div class="main clearfix">
+		<div class="container">
+			<div class="tag-title-div">
+				<span>标签管理</span>
+			</div>
+			<div class="tag-table-div">
+				<table class="tag-table">
+					<tr>
+						<th>
+							<span>标签 
+								<div class="column-sort"><span class="sort-up off"></span><span class="sort-down on " ></span></div>
+							</span>
+						</th>
+						<th>
+							<span>使用次数
+								<div class="column-sort"><span class="sort-up off"></span><span class="sort-down off " ></span></div>
+							</span>
+						</th>
+						<th>说明</th>
+					</tr>
+					<tr>
+						<td class="name"><span class='label'>装修</span></td>
+						<td class="amount">30</td>
+						<td class="desp">锤和钻</td>
+					</tr>
+					<tr>
+						<td class="name"><span class='label'>跑步</span></td>
+						<td class="amount">10000000</td>
+						<td class="desp">
+							<button class="tag-desp-btn" >
+								<span>添加</span>
+								<i class="tag-desp-add-icon icon-code"></i>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="name"><span class='label'>养花</span></td>
+						<td class="amount">1</td>
+						<td class="desp">
+							<div class="tag-desp-input-div">
+								<input type="text" class="tag-desp-inputbox"/>
+								<span class="tag-desp-input-btn"><a>保存</a></span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="name"><span class='label'>吃肉</span></td>
+						<td class="amount">99999999</td>
+						<td class="desp">肉肉肉肉肉肉肉肉肉肉</td>
+					</tr>
+					<tr>
+						<td class="name"><span class='label'>玩玩玩玩</span></td>
+						<td class="amount">99999999</td>
+						<td class="desp"></td>
+					</tr>
+					<tr>
+						<td class="name"><span class='label'>测试这个标签</span></td>
+						<td class="amount">6</td>
+						<td class="desp">显示宽度会变化</td>
+					</tr>
+					<tr>
+						<td class="name"><span class='label'>是不是闲的</span></td>
+						<td class="amount">100</td>
+						<td class="desp">是不是</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="tag-page-control">
+				<ul>
+					<li class="prev-page"></li>
+					<li class="page-num">1 <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a></li>
+					<li class="next-page"></li>
+				</ul>
+			</div>
+		</div><!--container end-->
+	</div>
+	<!--//main-->
+	
+	<!--浮动div、默认不显示的部分 begin-->
+	<div class="tip"><div class="tip-box down"></div></div>
+	<div class="pop-box label-menu-box">
+		<ul>
+			<li>只看它</li>
+			<li>选颜色</li>
+			<li><span>常</span><span>用</span></li>
+		</ul>
+	</div>
+	<div class="pop-box label-box">
+		<ul>
+			<li>#只看它#</li>
+			<li>#选颜色#</li>
+			<li>#这什么玩意#</li>
+		</ul>
+	</div>
+
+	<!--浮动div、默认不显示的部分 end-->
+</body>
+</html>
+<!-- test -->
