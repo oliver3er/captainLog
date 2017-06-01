@@ -9,6 +9,20 @@
 	<script src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript">
+		//设置右侧栏定点浮动
+		function load(){
+			var wholeWidth = document.body.clientWidth;
+			var contentWidth = $('.main-content').width();
+			var right = ( wholeWidth - contentWidth )/2;
+			$('.main-sidebar').css('position','fixed');
+			$('.main-sidebar').css('top','92px');
+			$('.main-sidebar').css('right', right+'px');
+		}
+		
+		window.onresize = function(){
+			load();
+		}
+	
 		function saveRecord(){
 		
 		}
@@ -108,31 +122,33 @@
 			//点击常用标签，显示关联标签
 			$('.usual-label').bind('click',function(){   		
 				var currentLabel = $(this);
+				var insertStr = '<div><div class="arrow_box up"><span class="label label4 usual-label">什么玩意</span><span class="label label2 usual-label">喝水</span><span class="label label2 usual-label">标签</span><span class="label label4 usual-label">什么玩意</span></div></div>';
 				
 				currentLabel.parent("div").find(".arrow_box").remove();
 				
 				var currentY = currentLabel.position().top;
 				var currentX = currentLabel.position().left;
-				var leftValue = currentX + currentLabel.width()/2 - 10;
+				var leftValue = currentX + currentLabel.width()/2 ;
 				var nextLabel;
 				var i = 0;
 				for(i = 0; i<5; i++){
-					nextLabel = currentLabel.next();
+					nextLabel = currentLabel.parent().next().find("span");
 					if(!nextLabel.hasClass("usual-label")){
 						break;
 					}
 					var y = nextLabel.position().top;
+					currentLabel = nextLabel;
 					if(y>currentY){
 						break;
-					}else{
-						currentLabel = nextLabel;
 					}
 				}
-				//加入关联标签的html
-				currentLabel.after('<div class="arrow_box up"><span class="label label4 usual-label">什么玩意</span><span class="label label2 usual-label">喝水</span><span class="label label2 usual-label">标签</span><span class="label label4 usual-label">什么玩意</span></div>');
 				//改变三角位置
-				$('head').append("<style>.arrow_box.up::before{ left: "+leftValue+"px }</style>");
-				$('head').append("<style>.arrow_box.up::after{ left: "+(leftValue+1.5)+"px }</style>");
+				$('head').append("<style>.arrow_box.up:before{ left: "+leftValue+"px; border-bottom-color: #c2e1f5; border-width: 9px; margin-left: -10px; bottom: 100%;}</style>");
+				$('head').append("<style>.arrow_box.up:after{ left: "+(leftValue+2)+"px; border-bottom-color: #f8fcfe;border-width: 7px; margin-left: -10px; bottom: 100%;}</style>");
+				
+				//加入关联标签的html
+				currentLabel.parent().before('<div><div class="arrow_box up"><span class="label label4 usual-label">什么玩意</span><span class="label label2 usual-label">喝水</span><span class="label label2 usual-label">标签</span><span class="label label4 usual-label">什么玩意</span></div></div>');
+				
 			});
 			
 			//右侧欢迎部分例子
@@ -144,7 +160,7 @@
 		});
 	</script>
 </head>
-<body>
+<body onload="load();">
 	<!--header-->
 	<header class="header sticky">
 		<div class="container">
@@ -205,7 +221,7 @@
 		    			<div class="record">
 		    				<div class="record-head">
 		    					<div class="record-time">2017-5-11</div>
-		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    					<div class="record-button"><span class="more-btn-down"><span/></div>
 		    				</div>
 		    				<div class="record-container clearfix">
 		    					<div class="record-labels">
@@ -225,7 +241,7 @@
 		    			<div class="record">
 		    				<div class="record-head">
 		    					<div class="record-time">2017-5-8</div>
-		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    					<div class="record-button"><span class="more-btn-up"></span></div>
 		    				</div>
 		    				<div class="record-container clearfix">
 		    					<div class="record-labels">
@@ -241,7 +257,7 @@
 		    			<div class="record">
 		    				<div class="record-head">
 		    					<div class="record-time">2017-4-28</div>
-		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    					<div class="record-button"><span class="more-btn-down"></span></div>
 		    				</div>
 		    				<div class="record-container clearfix">
 		    					<div class="record-labels">
@@ -257,7 +273,7 @@
 		    			<div class="record">
 		    				<div class="record-head">
 		    					<div class="record-time">2017-4-23</div>
-		    					<div class="record-button"><img src="images/moreBtn1.png" alt="更多" /></div>
+		    					<div class="record-button"><span class="more-btn-down"></span></div>
 		    				</div>
 		    				<div class="record-container clearfix">
 		    					<div class="record-labels">
@@ -330,13 +346,13 @@
 				</div>
 				<div class="sidebar-block usuallabels-block">
 					<div class="usuallabels-name"><span class="label label4">常用标签</span></div>
-					<div class="usuallabels-labels">
-						<span class="label label2 usual-label">标签</span>
-						<span class="label label4 usual-label">什么玩意</span>
-						<span class="label label2 usual-label">喝水</span>			
-						<span class="label label2 usual-label label-colorful" style="background: #ddbf87;">标签</span>
-						<span class="label label2 usual-label">喝水</span>
-						<span class="label label4 usual-label">什么玩意</span>
+					<div class="usuallabels-labels clearfix">
+						<div><span class="label label2 usual-label">标签</span></div>
+						<div><span class="label label4 usual-label">什么玩意</span></div>
+						<div><span class="label label2 usual-label">喝水</span></div>			
+						<div><span class="label label2 usual-label label-colorful" style="background: #ddbf87;">标签</span></div>
+						<div><span class="label label2 usual-label">喝水</span></div>
+						<div><span class="label label4 usual-label">什么玩意</span></div>
 					</div>
 				</div>
 				
