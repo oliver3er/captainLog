@@ -7,7 +7,35 @@
 	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 	<script type="text/javascript" src="js/move-top.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script type="text/javascript">
+	$(function (){
+		$('.name .label').bind('click',function(){
+			var label = $(this);  
+			var menubox = $('.label-menu-box');
+			var currentY = label.offset().top;
+			var currentX = label.offset().left;
+				
+         	menubox.show();  
+         	menubox.css("left",currentX);  
+         	menubox.css("top",currentY + label.height() + 8); 
+		});
+		
+		$('.name .label').hover(function(){
+				var label = $(this);  
+				var tipbox = $('.tip');
+				var currentY = label.offset().top;
+				var currentX = label.offset().left;
+				
+				$('.tip-box').text('');
+				$('.tip-box').text("这是个标签");
+         		tipbox.show();  
+         		tipbox.css("left",currentX + label.parent().width()/2 - tipbox.width()/2);  
+         		tipbox.css("top",currentY - tipbox.height() - 3);  
+			},function(){
+        		 $('.tip').hide();// 鼠标离开时触发
+            });
+	});
 	</script>
 </head>
 <body>
@@ -63,12 +91,16 @@
 						<th>说明</th>
 					</tr>
 					<tr>
-						<td class="name"><div><span class='label'>装修</span></div><div><span class="usual-icon"></span></div></td>
+						<td class="name">
+							<div><span class='label'>装修</span></div>
+							<div class="usual-icon"><!--span class="usual-icon"></span--></div>
+							<div class="usual-text"><!--span class="usual-text"></span-->[常用]</div>
+						</td>
 						<td class="amount">30</td>
 						<td class="desp">锤和钻</td>
 					</tr>
 					<tr>
-						<td class="name"><span class='label'>跑步</span></td>
+						<td class="name"><div><span class='label'>跑步</span></div></td>
 						<td class="amount">10000000</td>
 						<td class="desp">
 							<button class="tag-desp-btn" >
@@ -78,7 +110,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="name"><span class='label'>养花</span></td>
+						<td class="name"><div><span class='label'>养花</span></div></td>
 						<td class="amount">1</td>
 						<td class="desp">
 							<div class="tag-desp-input-div">
@@ -88,22 +120,22 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="name"><span class='label'>吃肉</span></td>
+						<td class="name"><div><span class='label'>吃肉</span></div></td>
 						<td class="amount">99999999</td>
 						<td class="desp">肉肉肉肉肉肉肉肉肉肉</td>
 					</tr>
 					<tr>
-						<td class="name"><span class='label'>玩玩玩玩</span></td>
+						<td class="name"><div><span class='label'>玩玩玩玩</span></div></td>
 						<td class="amount">99999999</td>
 						<td class="desp"></td>
 					</tr>
 					<tr>
-						<td class="name"><span class='label'>测试这个标签</span></td>
+						<td class="name"><div><span class='label'>测试这个标签</span></div></td>
 						<td class="amount">6</td>
 						<td class="desp">显示宽度会变化</td>
 					</tr>
 					<tr>
-						<td class="name"><span class='label'>是不是闲的</span></td>
+						<td class="name"><div><span class='label'>是不是闲的</span></div></td>
 						<td class="amount">100</td>
 						<td class="desp">是不是</td>
 					</tr>
