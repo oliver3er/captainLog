@@ -6,6 +6,7 @@
 	<title>Captain Logger</title>
 	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
 	<script src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript">
@@ -59,11 +60,12 @@
 	        
 	        
 	        //查询框，点击出现小标签
-	        /*$('.search-input-box').bind('click',function(){
+	        $('.search-input-box').bind('click',function(){
 	        	$(this).children('div').remove();
-	        	$(this).append('<div><ul class="search-input-items"><li>试试吧<span></span></li><li>再来<span></span></li></ul></div>');
+	        	$(this).append('<div><ul class="search-input-items"><li>试试吧<span></span></li><li>再来<span></span></li><li>再来<span></span></li><li>再来<span></span></li></ul></div><input type="text"/>');
+	        	$(this).children('input').focus();
 	        	$('.search-input-items').show();
-	        });*/
+	        });
 		
 			//新记录输入框与保存按钮联动
 			$('#inputBox').bind('input propertychange', function() {	
@@ -235,6 +237,42 @@
 		    							#乐队# 、#耳光乐队#《鸿鹄志》 有点像郝云。什么时候出的这么一个乐队，啦啦啦啦半天，没听出来啥玩意。一边听歌一边做设计会不会有点灵感，还是得多想？像画画一样，先想差不多了再下笔。
 		    							这个喜欢划拉的习惯不太好，控制控制
 		    						</p>
+		    						
+		    						
+		    						
+		    						<div class="clearfix">
+									<!-- react-empty: 634 -->
+										<div class="ant-upload-list ant-upload-list-picture-card">
+											<div class="ant-upload-list-item ant-upload-list-item-undefined" style="float: left; margin-top: 5px;">
+												<div class="ant-upload-list-item-info">
+													<a class="ant-upload-list-item-thumbnail"><img src="images/stars.svg" alt="star-60.png"></a>
+													<a href="#" target="_blank" class="ant-upload-list-item-name">star-60.png</a>
+													<span>
+														<a href="#" target="_blank"><i class="anticon anticon-eye-o"></i></a>
+													</span>
+												</div>
+											</div>
+		
+											<div class="ant-upload-list-item ant-upload-list-item-undefined" style="float: left; margin-top: 5px;">
+												<div class="ant-upload-list-item-info">
+													<a class="ant-upload-list-item-thumbnail">
+														<div>
+															<i class="anticon anticon-paper-clip"></i>
+														<!-- react-text: 649 -->電視直播源.rar<!-- /react-text -->
+														</div>
+													</a>
+													<a href="#" target="_blank" class="ant-upload-list-item-name">電視直播源.rar</a>
+													<span>
+														<a href="#" target="_blank"><i class="anticon anticon-eye-o"></i></a>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									
 		    					</div>
 		    				</div>
 		    			</div>
