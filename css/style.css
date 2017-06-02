@@ -581,6 +581,67 @@ button {
 	padding: 0;
 }
 
+.record-labels > div {
+	float: left;
+}
+
+.record-labels .usual-label-icon-div,
+.usuallabels-labels .usual-label-icon-div {
+	position: relative;
+	float: right;
+	padding-right: 20px;
+}
+
+.record-labels .usual-label-icon-div + span,
+.usuallabels-labels .usual-label-icon-div + span {
+	margin-right: 2px;
+}
+
+.record-labels .usual-label-icon-div .usual-icon,
+.usuallabels-labels .usual-label-icon-div .usual-icon {
+	position: absolute;
+	transition: all .3s;
+	text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.record-labels .usual-label-icon-div .usual-icon:before, 
+.usuallabels-labels .usual-label-icon-div .usual-icon:before {
+	font-size: 12px;
+    font-size: 0.75rem;
+    color: #1da1f3;
+    content: "\E660";
+}
+
+.record-labels .usual-label-icon-div .usual-icon:hover,
+.usuallabels-labels .usual-label-icon-div .usual-icon:hover {
+	font-size: 14px;
+    font-size: 0.875rem;
+    color: #5fc2ff;
+    -webkit-transform:scale(1.4);-ms-transform:scale(1.4);transform:scale(1.4);
+	display:block;
+}
+
+.record-labels .usual-label-icon-div .usual-text,
+.usuallabels-labels .usual-label-icon-div .usual-text {
+	position: absolute;
+	left: 12px;
+	padding-left: 2px;
+	margin: 0;
+	display: none;
+	color: #a5a5a5;
+}
+
+.record-labels .usual-label-icon-div .usual-icon:hover + .usual-text,
+.usuallabels-labels  .usual-label-icon-div .usual-icon:hover + .usual-text {
+	position: relative;
+	float: right;
+	display: block;
+	font-size: 12px;
+    font-size: 0.75rem;
+    font-weight: 200;
+}
+
 .label {
 	display: inline-block;
 	margin-right: 8px;
@@ -827,8 +888,8 @@ button {
 }
 
 .usuallabels-labels > div {
-	##float: left;
-	display: inline;
+	float: left;
+	##display: inline;
 }
 
 .usualLabels-line {
@@ -1629,8 +1690,8 @@ fieldset {
 
 .tag-table .name .usual-icon:hover + .usual-text {
 	display: block;
-	font-size: 14px;
-    font-size: 0.875rem;
+	font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 300;
 }
 
